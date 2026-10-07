@@ -11,7 +11,7 @@ const a = ASSETS.ETH;
 function App() {
   useFontsReady(["700 1em Inter", "500 1em Inter"]);
   return (
-    <Page current="ethereum.html" title={`${a.name} (${a.symbol})`} standfirst={`${usd(a.price)}, ${pct(changePct24(a))} in the past twenty-four hours. Your position, the market, and what ${a.name} is.`}>
+    <Page current="trade.html" back={{ href: "./trade.html", label: "Back to Trade" }} title={`${a.name} (${a.symbol})`} standfirst={`${usd(a.price)}, ${pct(changePct24(a))} in the past twenty-four hours. Your position, the market, and what ${a.name} is.`}>
       <PriceBand a={a} />
       <TradePanel symbol="ETH" />
       <StatsBand a={a} />

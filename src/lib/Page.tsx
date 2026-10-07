@@ -11,7 +11,7 @@ import { ASSETS, PAGES, SYMBOLS } from "../data";
  */
 export const NAV: [string, string][] = [["index.html", "Home"], ["assets.html", "My assets"], ["trade.html", "Trade"], ["earn.html", "Earn"], ["transactions.html", "Transactions"], ["learn.html", "Learn"]];
 
-export function Page({ current, title, standfirst, children }: { current: string; title: string; standfirst?: string; children: ReactNode }) {
+export function Page({ current, title, standfirst, back, children }: { current: string; title: string; standfirst?: string; back?: { href: string; label: string }; children: ReactNode }) {
   return (
     <>
       <a className="skip" href="#content">Skip to content</a>
@@ -40,6 +40,7 @@ export function Page({ current, title, standfirst, children }: { current: string
           </header>
           <main id="content">
             <header className="masthead">
+              {back && <p className="masthead__back"><a href={back.href}><span aria-hidden="true">←</span> {back.label}</a></p>}
               <h1 className="masthead__title">{title}</h1>
               {standfirst && <p className="masthead__standfirst">{standfirst}</p>}
               <p className="masthead__asof">{SNAPSHOT_NOTE}</p>

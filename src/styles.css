@@ -100,6 +100,9 @@ html[data-fonts-pending] .fit, html[data-fonts-pending] .masthead__title, html[d
 main { width: min(100% - 24px, 1180px); margin-inline: auto; padding-top: 8px; }
 @media (min-width: 1100px) { main { width: min(100% - 48px, 1180px); } }
 .masthead { margin: 12px 0 4px; }
+.masthead__back { margin: 0 0 6px; font: 600 14px/1.4 var(--font); }
+.masthead__back a { display: inline-flex; align-items: center; gap: 6px; min-height: 32px; text-decoration: none; }
+.masthead__back a:hover { text-decoration: underline; }
 .masthead__title { margin: 0; font: 700 clamp(1.6rem, 3vw, 2.2rem)/1.15 var(--font); letter-spacing: -0.02em; color: var(--ink); }
 .masthead__standfirst { margin: 6px 0 0; max-width: var(--measure); font-size: 16px; line-height: 1.5; color: var(--ink-soft); }
 .masthead__asof { margin: 4px 0 0; font-size: 13px; color: var(--muted); }

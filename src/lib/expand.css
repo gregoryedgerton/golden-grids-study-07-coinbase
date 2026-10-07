@@ -43,7 +43,13 @@
   background: var(--bg, #fff);
 }
 .cell__title { margin: 0; min-width: 0; flex: 1 1 auto; font: 500 22px/26px var(--font, inherit); letter-spacing: -0.02em; }
-.cell__close { font: 400 22px/1 var(--font, inherit); width: 36px; height: 36px; border: 0; border-radius: 50%; background: var(--btn, #f2f2f2); color: inherit; cursor: pointer; flex: none; }
+.cell__close { display: inline-flex; align-items: center; gap: 8px; min-height: 40px; padding: 0 14px 0 10px; font: 600 15px/1 var(--font, inherit); border: 1px solid var(--line, #ddd); border-radius: 999px; background: var(--btn, #f2f2f2); color: inherit; cursor: pointer; flex: none; }
+.cell__close:hover { background: var(--line-light, #e8e8e8); }
+.cell__x { font: 400 22px/1 var(--font, inherit); }
+.cell__esc { padding: 2px 8px; font: 500 12px/1.4 ui-monospace, monospace; color: var(--muted, #6c6c6c); border: 1px solid var(--line, #ddd); border-radius: 6px; }
+@media (max-width: 639px) { .cell__esc { display: none; } }
+.cell__foot { display: flex; justify-content: flex-start; padding: 0 24px 24px; }
+@media (max-width: 639px) { .cell__foot { padding: 0 16px 16px; } }
 .cell__close:focus-visible { outline: 2px solid var(--fg, #222); outline-offset: 2px; }
 .cell__body { padding: 24px; font: 400 16px/24px var(--font, inherit); }
 @media (max-width: 639px) { .cell__head { padding: 12px 16px; } .cell__body { padding: 16px; } }
