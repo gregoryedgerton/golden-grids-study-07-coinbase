@@ -96,7 +96,10 @@ read aloud as written gets a `spoken` form. With web fonts, call
 **Depth is in flow, never in a modal.** Every photograph, every card that
 summarises, expands in place (`src/lib/expand.tsx`): the band grows,
 nothing scrolls inside a box, covered content goes inert, focus moves to
-the close control and returns on close. An item chosen from a row opens its
+the close control and returns on close. Every drill-down has a plain way
+out: a labelled Close (not an icon alone) at the head's left edge, a
+second Close at the foot, and Escape; a band opened from a row closes the
+same three ways. (Greg, Study 07.) An item chosen from a row opens its
 own band beneath the row, a new band and never a grid inside a grid, with
 one orientation per item so a row of ten turns through the placements. A
 fact that continues elsewhere carries a section link, and an expanded
