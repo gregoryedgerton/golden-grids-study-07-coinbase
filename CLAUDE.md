@@ -1,0 +1,219 @@
+# CLAUDE.md
+
+Guidance for agents working in a Golden Grids layout study.
+
+## What this repo is
+
+Study 07: the signed-in Coinbase web app rebuilt as GIFcommit, a fictional
+exchange, with real market data and an invented account. TEN pages, each a
+Vite entry (`vite.config.ts`): `index` (Home), `assets`, `trade`, `earn`,
+`transactions`, `learn`, and `bitcoin`, `ethereum`, `solana`, `xrp`.
+`src/lib/Page.tsx` is the shell (rail, top bar, tab bar, colophon);
+`src/bands/bands.tsx` every grid; `src/lib/modules.tsx` the flat modules;
+`src/lib/cards.tsx` what goes inside a square; `src/lib/charts.tsx` the
+figures; `src/data.ts` reads `src/data/market.json`, which
+`captures/data.py` writes; `src/portfolio.ts` is the fictional account.
+Read `docs/program/PROGRAM.md`, then `STUDY-BRIEF.md`, then `README.md`.
+
+Live at https://gregoryedgerton.github.io/golden-grids-study-07-coinbase/;
+pushing to `main` deploys.
+
+## Rules that are not negotiable
+
+- Name the reference page. Substitute every asset. Nothing from the reference
+  site — photography, wordmarks, copy — goes into the repo or the deploy.
+- The library is consumed from npm at its published version. Never link a
+  local checkout. A bug found here is an issue on the library, not a patch.
+- Bands stack; they never nest. No wrapper component over `GoldenGrid` — the
+  study exists to show the real API being used directly.
+- Breakpoints live only in `src/lib/viewport.ts`. Three states, never two.
+- Study tools (`src/lib/tools.tsx`) are the only floating UI. Controls go
+  there, on their own stacking layer; the study's stylesheet never styles them.
+  Grid outlines and band notes are off by default. The panel owns the
+  viewport's top-right corner: it is fixed at
+  `top: 12px; right: 12px` with `z-index: 2147483000` (`src/lib/tools.css`) —
+  a collapsed tab, and a 260px-wide panel when open — and nothing the study
+  draws may stack above it. A control the study puts in that corner is
+  covered and cannot be clicked, however it is positioned. Put dialog and
+  panel controls anywhere else; Study 02's album dialog uses a sticky bar at
+  the top left, and an expanded cell's dismiss control sits at its head's
+  left edge for the same reason.
+- Expansion (`src/lib/expand.tsx`) is how a slot shows content it cannot hold:
+  the band grows, nothing scrolls inside a box, and the covered content goes
+  inert. Every photograph should be expandable — points of interaction are
+  encouraged, and the picture is the affordance.
+- Media fills a slot with `object-fit: cover`; per-image `object-position` is
+  the escape hatch. Never reshape a band to suit an image.
+- Pass one ends with the asset spec in `README.md` filled in. Do not invent
+  placeholder content and call the study done.
+- No CSS framework, no design system, no routing, no state library, no tests.
+
+## The standard, from Studies 03 and 04
+
+What every study is held to beyond the rules above. These are features and
+the conditions for using them; the content is the study's own, drawn from
+its subject. A study that leaves one out says why in its README.
+
+**Copy is about the subject, never about the grid.** Band titles, lessons,
+captions and standfirsts describe what the reference page is about, in the
+subject's own detail and at paragraph length where there is room. Grid
+geometry (range, placement, which side the hero is on) goes in the hidden
+band `note`, the README's band table and this file. No winks, no stamps, no
+novelty labels, no jokes about the reference or the reader: a plain
+scholarly register, as a professor would write it.
+
+**Where the format carries marketing or account matter, the study carries
+it too.** A streaming home page interleaves rows with a plan banner, reasons
+to join, a price table, a FAQ and a call to action; a listing page has a
+booking card, a host card and policies; an encyclopaedia has a licence and
+an edit history. Rebuild those modules as the reference places them, with
+the study's own copy, straight and plausible, for a fictional service where
+one is needed; a form sends nothing and says so. Flat modules (a FAQ, a
+price table of peers) are lists, not grids.
+
+**Grids run full width, and type fills what content does not.** No width
+caps that leave a band standing in empty ground. When a band has fewer
+things than squares, the remaining squares carry type as a design element,
+a catalogue number, a date, a count, a word from the subject, rather than
+nothing. The type set is one set: body copy, lessons and captions are
+raised to carry as much as the headline, and the fitted line is capped
+(about 120px) so the delta between largest and smallest type stays within
+roughly eight to one. Body copy comes in two lengths and the square's
+height picks one; it is never buried and never cut. (Greg, Study 05.)
+
+**Type fits its square.** Copy slots use `Fact`, `Figure` and `LinkBox` from
+`src/lib/boxes.tsx`: a label, a line of type fitted to the room the square
+leaves it (`src/lib/fit.tsx`, a binary search on font-size), optional body
+copy, a foot. The line's container is `flex: 1 1 0`, a definite box; it
+must never grow with its content, or the fit measures against a box that is
+always big enough (this is what broke in WebKit). Padding is a share of the
+square's side. Nothing is ever cut: labels wrap, body copy is removed whole
+below 240px, in a square under 64px the label goes and the line stays, and
+a formula (`fit--num`) breaks only at its own newlines. A line that does not
+read aloud as written gets a `spoken` form. With web fonts, call
+`useFontsReady` so display type never flashes from the fallback face.
+
+**Depth is in flow, never in a modal.** Every photograph, every card that
+summarises, expands in place (`src/lib/expand.tsx`): the band grows,
+nothing scrolls inside a box, covered content goes inert, focus moves to
+the close control and returns on close. An item chosen from a row opens its
+own band beneath the row, a new band and never a grid inside a grid, with
+one orientation per item so a row of ten turns through the placements. A
+fact that continues elsewhere carries a section link, and an expanded
+passage lists where it continues. When the reference is several pages, the
+study is several pages (one Vite entry each, plain relative links, no
+router) with a shared shell: contents strip, previous and next.
+
+**Media supports the format.** Where the subject moves, the squares move:
+short clips cut from the source at the moment of the still (`Clip`,
+`src/lib/clip.tsx`), square, silent, looping, playing only while on screen
+and fetched only then, and the whole work loads only on request (`Player`).
+Where the subject is a text, the squares carry original figures drawn from
+the subject's own mathematics or data, inline SVG, in the page's own inks.
+Photographs fill their slot with `object-fit: cover`.
+
+**Both colour schemes, by device preference.** Tokens in `:root` and a
+`prefers-color-scheme` block; every box tone and figure takes its colour
+from the tokens so the whole study follows the device. If the reference has
+one scheme, that scheme is the default and the other is the study's own
+values turned over, and the README says so. Small coloured text (the label)
+gets its own token per scheme so it passes 4.5:1 on each ground.
+
+**Reduced motion is respected, and tested as the device sends it.** The
+rule is `transition: none; animation: none`, never the 0.01ms trick, which
+turns every style write into a transition and breaks anything that
+measures after writing. Clips become their stills; any dial becomes a static
+layout. Verify with the device setting on, not only the tools switch.
+
+**Accessibility is audited, not assumed.** Before publishing run
+`captures/scan.cjs` against the dev server: in Chrome and WebKit, at 390,
+820 and 1440, light and dark, it finds anything overflowing its box, any
+fitted line under 12px, and axe-core violations (WCAG 2.0/2.1/2.2 A and AA,
+best practice) with an expansion open. Then by hand: one `h1`, one `h2` per
+band, landmarks, the skip link first in the tab order (before the tools),
+every control with a distinct accessible name ("More: ⟨title⟩", "Continued
+in section IV, Geometry"), SVGs with `role="img"` and a label that says what
+they show, targets at least 24px, no horizontal scroll at 320px, Enter and
+Escape through every expansion. Write what the scan cannot check in the
+README: the smallest line, and that no screen-reader user has tested it.
+
+## This study's own rules
+
+- There is NO capture of the reference: Coinbase's public pages sit behind
+  a Cloudflare human check, which the study did not and must not cross.
+  The structure is rebuilt from how the app is known to be organised, the
+  register from its published design system, and the README says both.
+  Do not add a capture obtained by solving the check, and do not sign in.
+- The data is REAL and dated. `captures/data.py` is the only way numbers
+  enter the study; never type a price, cap or supply into source. Every
+  page prints the snapshot time (`META.asOf`). To move the snapshot, run
+  the script and commit the JSON with it.
+- The account is FICTIONAL and says so wherever it could be mistaken for
+  one: `src/portfolio.ts` (holdings, cost bases, staking, transactions,
+  rates) belongs to no one; the trade panel previews and places nothing;
+  promotions describe a fictional subscription. Nothing on the page is
+  advice, and the colophon says so.
+- Sources are attributed where they appear: Coinbase Exchange public API
+  and CoinGecko in the colophon, Wikipedia (CC BY-SA 4.0) on each card and
+  in the expanded cell.
+- Below desktop, a five- or six-square band is dealt into two stacked
+  grids (`Grids` in `bands.tsx`: a three and a two, or two threes), so no
+  square is under 114px. Never shrink a band's range to make a number fit;
+  split it, and let the note say so.
+- Numbers are tabular everywhere; money is two decimals above a dollar and
+  four or six below; percentages carry their sign. `usd`, `pct`, `qty` and
+  `units` in `src/data.ts` are the only formatters.
+- Chart boxes own their range state; the balance chart values today's
+  quantities at each point's prices (holdings held constant).
+
+Two geometry rules, verified against source, that every band relies on:
+
+- Parity: with *n* = visible boxes (+1 for a placeholder), `right`/`left` are
+  landscape only when *n* is even; `top`/`bottom` only when *n* is odd.
+- Hero side: the largest box sits on the `placement` side turned *n − 2*
+  quarter-turns in the spiral's direction (opposite at 4, one step at 3).
+
+## API facts, verified against 5.0.0 source
+
+- `GoldenGrid` props: `from` (1), `to` (4), `color`, `outline`, `clockwise`
+  (true), `placement` (`"right"` | `"bottom"` | `"left"` | `"top"`), `children`.
+- `GoldenBox` children map largest slot → smallest. Extra children are ignored.
+- When `from > 1`, the skipped positions collapse into one placeholder slot,
+  rendered first in the DOM and filled by the **last** `GoldenBox` child.
+- Structural CSS is auto-injected. `GoldenBox` renders a 100%×100%
+  `position: relative` div and nothing else; it accepts `className` and
+  `style`. All visual styling is ours.
+- Only direct `GoldenBox` children count; a wrapper component or fragment is
+  dropped silently. `from={2}` skips position 1 alone:
+  a 1×1 placeholder, rendered first, filled by the last child, raw base colour.
+  Same rectangles as `from={1}`, different child mapping and colours. `from === to === 1`
+  is `single`: one box, later children ignored.
+- DOM order is placeholder first, then slots smallest to largest: the hero is
+  the last element.
+- There is no dial in this study.
+
+## Commands
+
+```bash
+npm install
+npm run dev       # Vite dev server
+npm run build     # tsc -b && vite build → dist/
+npm run preview
+```
+
+Pushing to `main` deploys to GitHub Pages via `.github/workflows/pages.yml`.
+Base path derives from `GITHUB_REPOSITORY`; do not hard-code it.
+
+## Sandbox constraints
+
+The library README links this repo as its "try it without installing" path,
+opened in StackBlitz at `https://stackblitz.com/~/github.com/gregoryedgerton/golden-grids-study-template`.
+
+- **Vite stays on 7.x.** Vite 8 depends on rolldown, whose WebContainer
+  binding is a wasm download fetched at first run under an experimental WASI
+  runtime. It made the sandbox slow and fragile. Do not bump to 8 without
+  loading the StackBlitz link afterwards and watching it reach `VITE ready`.
+- `.stackblitzrc` pins install and start so the importer does not guess.
+- Do not append `?file=` to the `~/github.com` link; it made the IDE fail to
+  start in testing. The classic `/github/` importer accepts `?file=` but waits
+  on a WebSocket and can stall at "Cloning repo from GitHub".

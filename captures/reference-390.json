@@ -1,0 +1,26 @@
+{
+ "tiles": [],
+ "url": "https://www.coinbase.com/price/bitcoin",
+ "title": "Just a moment...",
+ "width": 390,
+ "height": 900,
+ "headings": [
+  {
+   "tag": "H1",
+   "text": "www.coinbase.com",
+   "x": 72,
+   "y": 128,
+   "w": 302,
+   "h": 100
+  },
+  {
+   "tag": "H2",
+   "text": "Performing security verification",
+   "x": 16,
+   "y": 236,
+   "w": 358,
+   "h": 30
+  }
+ ],
+ "images": []
+}
