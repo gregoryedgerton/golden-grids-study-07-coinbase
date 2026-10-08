@@ -167,24 +167,15 @@ export function ExpandedCell({
   return (
     <section className="cell" id={id} ref={ref} aria-label={title}>
       <header className="cell__head">
-        {/* The dismiss control is FIRST, so it renders at the head's left
-            edge. The study tools own the viewport's top-right corner, and
-            this header is sticky, so a control on the right does not merely
-            pass under the tools panel while scrolling — it parks there for
-            as long as the cell is open. It is also the only pointer route
-            out, because an open cell hides its own trigger and inerts every
-            sibling slot. */}
-        <button ref={closeRef} type="button" className="cell__close" onClick={onClose} aria-label="Close" aria-keyshortcuts="Escape"><span className="cell__x" aria-hidden="true">×</span><span className="cell__closeword">Close</span></button>
-        <span className="cell__esc" aria-hidden="true">Esc</span>
         <h3 className="cell__title">{title}</h3>
+        {/* ONE way out, where a reader expects it: the top right of the open
+            window, in a sticky head so it stays reachable down a long
+            passage. Escape closes too. The study tools panel, which used to
+            own that corner, is hidden (Greg, 2026-10-07) until it has a
+            better trigger; nothing else may be drawn over this control. */}
+        <button ref={closeRef} type="button" className="cell__close" onClick={onClose} aria-label="Close" aria-keyshortcuts="Escape"><span className="cell__x" aria-hidden="true">×</span><span className="cell__closeword">Close</span></button>
       </header>
       <div className="cell__body">{children}</div>
-      {/* A second way out at the foot, for a reader who has scrolled through a
-          long passage: the sticky head is still there, but the end of the
-          text is where the hand is. */}
-      <footer className="cell__foot">
-        <button type="button" className="cell__close cell__close--foot" onClick={onClose}><span className="cell__x" aria-hidden="true">×</span><span className="cell__closeword">Close</span></button>
-      </footer>
     </section>
   );
 }

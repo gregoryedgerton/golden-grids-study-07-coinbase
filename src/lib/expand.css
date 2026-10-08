@@ -32,13 +32,10 @@
   outline: 1px solid var(--line, #ddd); outline-offset: -1px;
 }
 .cell__head {
-  display: flex; align-items: center; justify-content: flex-start; gap: 16px;
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
   padding: 16px 24px; border-bottom: 1px solid var(--line, #ddd);
-  /* The band can be taller than the viewport once open; keep the close
-     control reachable without scrolling back to the top. Sticky is why the
-     control cannot sit on the right: the study tools are fixed in that
-     corner above every layer here, so a pinned control there stays buried
-     for the whole life of the open cell. */
+  /* The band can be taller than the viewport once open; the head is sticky
+     so Close stays reachable, at the top right where a reader looks for it. */
   position: sticky; top: 0; z-index: 1;
   background: var(--bg, #fff);
 }
@@ -46,10 +43,6 @@
 .cell__close { display: inline-flex; align-items: center; gap: 8px; min-height: 40px; padding: 0 14px 0 10px; font: 600 15px/1 var(--font, inherit); border: 1px solid var(--line, #ddd); border-radius: 999px; background: var(--btn, #f2f2f2); color: inherit; cursor: pointer; flex: none; }
 .cell__close:hover { background: var(--line-light, #e8e8e8); }
 .cell__x { font: 400 22px/1 var(--font, inherit); }
-.cell__esc { padding: 2px 8px; font: 500 12px/1.4 ui-monospace, monospace; color: var(--muted, #6c6c6c); border: 1px solid var(--line, #ddd); border-radius: 6px; }
-@media (max-width: 639px) { .cell__esc { display: none; } }
-.cell__foot { display: flex; justify-content: flex-start; padding: 0 24px 24px; }
-@media (max-width: 639px) { .cell__foot { padding: 0 16px 16px; } }
 .cell__close:focus-visible { outline: 2px solid var(--fg, #222); outline-offset: 2px; }
 .cell__body { padding: 24px; font: 400 16px/24px var(--font, inherit); }
 @media (max-width: 639px) { .cell__head { padding: 12px 16px; } .cell__body { padding: 16px; } }

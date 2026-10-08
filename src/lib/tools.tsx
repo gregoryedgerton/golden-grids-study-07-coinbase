@@ -33,6 +33,12 @@ function readInitial(): Record<Key, boolean> {
   return state;
 }
 
+/** The panel is hidden until it has a better trigger (Greg, 2026-10-07): it
+ *  used to own the viewport's top-right corner, which is where a drill-down's
+ *  Close belongs. `?tools=1` shows it in the meantime; the g/n/m keys still
+ *  work without it. */
+const TOOLS_SHOWN = typeof window !== "undefined" && new URLSearchParams(window.location.search).get("tools") === "1";
+
 export function Tools({ children }: { children?: ReactNode }) {
   const [state, setState] = useState(readInitial);
   const [open, setOpen] = useState(false);
@@ -68,6 +74,7 @@ export function Tools({ children }: { children?: ReactNode }) {
 
   const toggle = (k: Key) => setState((s) => persist({ ...s, [k]: !s[k] }));
 
+  if (!TOOLS_SHOWN) return null;
   return (
     <div className="gg-tools" data-open={open ? "true" : "false"}>
       <button type="button" className="gg-tools__tab" aria-expanded={open} aria-controls="gg-tools-panel" onClick={() => setOpen((o) => !o)}>
