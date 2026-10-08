@@ -244,3 +244,10 @@ a.box .box__foot .box__arrow { font-size: clamp(0.7rem, 4cqmin, 0.95rem); font-w
 .colophon { width: min(100% - 24px, 1180px); margin: 12px auto 40px; padding: 16px; background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); font-size: 14px; color: var(--ink-soft); }
 @media (min-width: 1100px) { .colophon { width: min(100% - 48px, 1180px); } }
 .colophon p { margin: 0; max-width: 100ch; }
+
+/* The secondary button as the app has it: a pale pill with a hairline; it drives the expanded cell's Close. */
+:root {
+  --cta2-font: 600 15px/1 var(--font); --cta2-pad: 0 20px; --cta2-min-h: 44px;
+  --cta2-color: var(--ink); --cta2-bg: var(--card-2); --cta2-border: 1px solid var(--line); --cta2-radius: 999px;
+  --cta2-hover-bg: var(--line); --cta2-hover-border: 1px solid var(--line);
+}

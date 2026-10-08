@@ -40,10 +40,25 @@
   background: var(--bg, #fff);
 }
 .cell__title { margin: 0; min-width: 0; flex: 1 1 auto; font: 500 22px/26px var(--font, inherit); letter-spacing: -0.02em; }
-.cell__close { display: inline-flex; align-items: center; gap: 8px; min-height: 40px; padding: 0 14px 0 10px; font: 600 15px/1 var(--font, inherit); border: 1px solid var(--line, #ddd); border-radius: 999px; background: var(--btn, #f2f2f2); color: inherit; cursor: pointer; flex: none; }
-.cell__close:hover { background: var(--line-light, #e8e8e8); }
-.cell__x { font: 400 22px/1 var(--font, inherit); }
-.cell__close:focus-visible { outline: 2px solid var(--fg, #222); outline-offset: 2px; }
+/* The Close is the study's SECONDARY CTA. A study declares the --cta2-* tokens
+   once (at the end of its styles.css), from its own secondary button, and every
+   expanded cell's Close follows; the fallbacks are a plain outlined button. */
+.cell__close {
+  display: inline-flex; align-items: center; gap: var(--cta2-gap, 6px);
+  min-height: var(--cta2-min-h, 40px); padding: var(--cta2-pad, 8px 14px);
+  font: var(--cta2-font, 600 15px/1.2 var(--font, inherit));
+  letter-spacing: var(--cta2-ls, 0); text-transform: var(--cta2-tt, none);
+  color: var(--cta2-color, var(--fg, #222)); background: var(--cta2-bg, transparent);
+  border: var(--cta2-border, 1px solid currentColor); border-radius: var(--cta2-radius, 4px);
+  cursor: pointer; flex: none;
+}
+.cell__close:hover {
+  background: var(--cta2-hover-bg, var(--line-light, #e8e8e8));
+  color: var(--cta2-hover-color, var(--cta2-color, var(--fg, #222)));
+  border: var(--cta2-hover-border, var(--cta2-border, 1px solid currentColor));
+}
+.cell__x { font: 400 1.25em/1 var(--cta2-x-font, inherit); }
+.cell__close:focus-visible { outline: 2px solid var(--cta2-focus, var(--fg, #222)); outline-offset: 2px; }
 .cell__body { padding: 24px; font: 400 16px/24px var(--font, inherit); }
 @media (max-width: 639px) { .cell__head { padding: 12px 16px; } .cell__body { padding: 16px; } }
 

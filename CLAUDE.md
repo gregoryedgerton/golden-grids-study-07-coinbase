@@ -98,7 +98,13 @@ way out: a labelled Close (not an icon alone) at the top right of the
 opened container, in a sticky head so it stays reachable, plus Escape; a
 band opened from a row closes the same way. The study tools panel, which
 used to own the viewport's top-right corner, is hidden until it has a
-better trigger (`?tools=1` shows it). (Greg, Study 07–08.) An item chosen from a row opens its
+better trigger (`?tools=1` shows it). The Close is the study's SECONDARY CTA:
+`.cell__close` reads the `--cta2-*` tokens (font, padding, colour, ground,
+border, radius, hover) from `expand.css`, and each study declares those tokens
+once, at the end of `styles.css`, from its own secondary button (the outlined
+box, the grey pill, the ghost button), so the Close always looks like the
+study's other secondary controls and never like the template's. A study with no
+secondary button defines one first. (Greg, Study 07–10.) An item chosen from a row opens its
 own band beneath the row, a new band and never a grid inside a grid, with
 one orientation per item so a row of ten turns through the placements. A
 fact that continues elsewhere carries a section link, and an expanded
