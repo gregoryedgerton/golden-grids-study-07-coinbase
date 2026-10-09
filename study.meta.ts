@@ -10,12 +10,12 @@ import type { Plugin } from "vite";
  *   <title>      {Page} · {Reference} · Golden Grids layout study {NN}
  *   description  the notice, word for word, which is also the sticky banner
  *   og:*         the same title and notice
- *   icon         /favicon.svg
+ *   icon         /favicon.svg, or the file `icon` names in study.json
  *
  * Whatever title, description or icon an entry's HTML already carries is
  * replaced, so the entries cannot drift from each other or from the banner.
  */
-interface StudyMeta { number: string; name: string; notice: string; pages?: Record<string, string> }
+interface StudyMeta { number: string; name: string; notice: string; pages?: Record<string, string>; icon?: string }
 const esc = (s: string) => s.replace(/&/g, "&amp;").replace(/"/g, "&quot;").replace(/</g, "&lt;");
 
 export function studyTitle(study: StudyMeta, file: string): string {
@@ -45,7 +45,9 @@ export function studyMeta(): Plugin {
           `<meta property="og:description" content="${esc(study.notice)}" />`,
           `<meta property="og:type" content="website" />`,
           `<meta property="og:site_name" content="Golden Grids layout studies" />`,
-          `<link rel="icon" type="image/svg+xml" href="/favicon.svg" />`,
+          study.icon
+            ? `<link rel="icon" href="/${esc(study.icon)}" />`
+            : `<link rel="icon" type="image/svg+xml" href="/favicon.svg" />`,
         ].join("\n    ");
         return cleaned.replace(/<\/head>/i, `    ${head}\n  </head>`);
       },

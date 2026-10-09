@@ -40,6 +40,8 @@ export interface Study {
   affiliation?: string;
   repo: string;
   updated: string;
+  /** A public file to use as the favicon instead of /favicon.svg, for a study whose subject is the author's own brand. */
+  icon?: string;
 }
 export const study = data as Study;
 
