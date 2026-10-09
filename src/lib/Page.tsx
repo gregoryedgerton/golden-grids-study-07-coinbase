@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 import { Tools } from "./tools";
+import { StudyBanner, StudyDisclosure } from "./study";
 import { ACCOUNT, SNAPSHOT_NOTE } from "../portfolio";
 import { ASSETS, PAGES, SYMBOLS } from "../data";
 
@@ -15,6 +16,7 @@ export function Page({ current, title, standfirst, back, children }: { current: 
   return (
     <>
       <a className="skip" href="#content">Skip to content</a>
+      <StudyBanner />
       <Tools />
       <div className="app">
         <nav className="rail" aria-label="Sections">
@@ -26,7 +28,6 @@ export function Page({ current, title, standfirst, back, children }: { current: 
               </li>
             ))}
           </ul>
-          <p className="rail__foot">A layout study. Nothing here is advice, an offer, or an account.</p>
         </nav>
         <div className="frame">
           <header className="topbar">
@@ -47,24 +48,9 @@ export function Page({ current, title, standfirst, back, children }: { current: 
             </header>
             {children}
           </main>
-          <footer className="colophon">
-            <p>
-              A layout study of the signed-in Coinbase web app, built from its known structure without a capture
-              (the public pages sit behind a bot check the study did not cross). GIFcommit is a fictional exchange
-              and the account on this page is invented: its holdings, cost bases, transactions and rewards belong to
-              no one, and nothing can be bought, sold, staked or sent from here. Prices and candles are from the{" "}
-              <a href="https://docs.cdp.coinbase.com/exchange/reference">Coinbase Exchange public API</a>; market
-              capitalisation, supply and all-time highs from <a href="https://www.coingecko.com/">CoinGecko</a>; asset
-              and topic summaries from Wikipedia under{" "}
-              <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>, linked where they appear.
-              Nothing from Coinbase's pages, marks or copy is reproduced. Not investment advice. Built with{" "}
-              <a href="https://github.com/gregoryedgerton/golden-grids">Golden Grids</a> ·{" "}
-              <a href="https://www.npmjs.com/package/@gifcommit/golden-grids">npm</a> ·{" "}
-              <a href="https://gregoryedgerton.github.io/golden-grids/">generator</a>.
-            </p>
-          </footer>
         </div>
       </div>
+      <StudyDisclosure />
       <nav className="tabbar" aria-label="Sections, phone">
         {NAV.slice(0, 5).map(([href, label]) => <a key={href} href={`./${href}`} aria-current={href === current ? "page" : undefined}>{label}</a>)}
       </nav>

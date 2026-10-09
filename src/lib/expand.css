@@ -36,7 +36,7 @@
   padding: 16px 24px; border-bottom: 1px solid var(--line, #ddd);
   /* The band can be taller than the viewport once open; the head is sticky
      so Close stays reachable, at the top right where a reader looks for it. */
-  position: sticky; top: 0; z-index: 1;
+  position: sticky; top: var(--study-banner-h, 0px); z-index: 1;
   background: var(--bg, #fff);
 }
 .cell__title { margin: 0; min-width: 0; flex: 1 1 auto; font: 500 22px/26px var(--font, inherit); letter-spacing: -0.02em; }

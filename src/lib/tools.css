@@ -2,7 +2,7 @@
    own stylesheet can change completely without touching it. The panel sits on
    its own stacking layer above the page. */
 .gg-tools {
-  position: fixed; top: 12px; right: 12px;
+  position: fixed; top: calc(var(--study-banner-h, 0px) + 12px); right: 12px;
   z-index: 2147483000;
   isolation: isolate;
   font: 500 13px/1.4 -apple-system, "system-ui", "Segoe UI", Roboto, sans-serif;

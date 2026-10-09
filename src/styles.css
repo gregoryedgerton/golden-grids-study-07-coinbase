@@ -66,7 +66,7 @@ html[data-fonts-pending] .fit, html[data-fonts-pending] .masthead__title, html[d
 .app { display: grid; grid-template-columns: minmax(0, 1fr); min-height: 100svh; }
 .rail { display: none; }
 .frame { min-width: 0; padding-bottom: 72px; }
-.topbar { display: flex; align-items: center; gap: 12px; padding: 10px 12px; padding-right: 76px; background: var(--card); border-bottom: 1px solid var(--line); position: sticky; top: 0; z-index: 2; }
+.topbar { display: flex; align-items: center; gap: 12px; padding: 10px 12px; padding-right: 76px; background: var(--card); border-bottom: 1px solid var(--line); position: sticky; top: var(--study-banner-h, 0px); z-index: 2; }
 .search { flex: 1 1 auto; min-width: 0; }
 .search input { width: 100%; min-height: 44px; padding: 0 14px; font: inherit; color: var(--ink); background: var(--card-2); border: 1px solid transparent; border-radius: 999px; }
 .search input:focus { border-color: var(--blue); outline: none; background: var(--card); }
@@ -79,7 +79,7 @@ html[data-fonts-pending] .fit, html[data-fonts-pending] .masthead__title, html[d
 .tabbar a[aria-current] { color: var(--blue-ink); background: var(--card-2); }
 @media (min-width: 1100px) {
   .app { grid-template-columns: var(--rail) minmax(0, 1fr); }
-  .rail { display: flex; flex-direction: column; gap: 8px; position: sticky; top: 0; height: 100svh; padding: 20px 16px; background: var(--card); border-right: 1px solid var(--line); }
+  .rail { display: flex; flex-direction: column; gap: 8px; position: sticky; top: var(--study-banner-h, 0px); height: calc(100svh - var(--study-banner-h, 0px)); padding: 20px 16px; background: var(--card); border-right: 1px solid var(--line); }
   .rail ul { list-style: none; margin: 12px 0 0; padding: 0; display: grid; gap: 2px; }
   .rail a { display: flex; align-items: center; gap: 12px; min-height: 44px; padding: 0 12px; border-radius: 12px; font: 600 15px/1 var(--font); color: var(--ink); text-decoration: none; }
   .rail a:hover { background: var(--card-2); }

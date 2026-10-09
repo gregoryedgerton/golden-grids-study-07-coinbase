@@ -181,6 +181,35 @@ Two geometry rules, verified against source, that every band relies on:
 - Hero side: the largest box sits on the `placement` side turned *n − 2*
   quarter-turns in the spiral's direction (opposite at 4, one step at 3).
 
+## Disclosure and neutrality
+
+- **Every page says it is a study, in three places**: its metadata, a sticky
+  banner at the top, and a disclosure that is the last element on the page.
+  All three read `src/study.json`. `study.meta.ts` writes each entry's title
+  (`{Page} · {Reference} · Golden Grids layout study {NN}`), description and
+  favicon link, so the HTML entries carry none; `StudyBanner` and
+  `StudyDisclosure` (`src/lib/study.tsx`, `study.css`) draw the other two.
+  The banner's sentence and the meta description are the same sentence. Do
+  not restyle them from the study's stylesheet, do not hide or shorten them,
+  and do not put anything after the disclosure.
+- **Keep `src/study.json` true.** When pages, sources, assets or dates change,
+  change it in the same commit: pages reviewed and when, how they were read,
+  what is real, what is invented or changed, each asset's source and licence,
+  and `updated`. Say what is not known (an unknown licence, a figure checked
+  only at second hand). A page's own credit list goes to `StudyDisclosure` as
+  children.
+- **Anything that sticks to the top offsets by `--study-banner-h`**, which the
+  banner sets: an opened cell's head, a strip, a rail, a stage.
+- **A study records; it does not judge.** Do not write, on the page or in the
+  README, that Golden Grids suits or does not suit this content, that the
+  reference is worse, or that the study succeeded or failed. No "claim", no
+  "what did not", no "honest failure". The README has "Approach" (describe both
+  arrangements) and "Notes for review" (plain observations for the people who
+  will review it). The assessment is made once, after all studies have been
+  reviewed by people. (Greg, 2026-10-09.)
+- **Favicon**: `public/favicon.svg`, a 32-unit tile with 6-unit corners and one
+  letter in the study's colours.
+
 ## API facts, verified against 5.0.0 source
 
 - `GoldenGrid` props: `from` (1), `to` (4), `color`, `outline`, `clockwise`

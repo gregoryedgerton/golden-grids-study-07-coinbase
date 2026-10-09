@@ -1,0 +1,71 @@
+{
+  "number": "07",
+  "name": "Coinbase",
+  "notice": "A layout study, not Coinbase: a signed-in exchange rebuilt with Golden Grids for GIFcommit, a fictional exchange. Not affiliated with Coinbase; the account is invented, nothing trades, not investment advice.",
+  "pages": {
+    "assets": "My assets",
+    "bitcoin": "Bitcoin",
+    "earn": "Earn",
+    "ethereum": "Ethereum",
+    "index": "Home",
+    "learn": "Learn",
+    "solana": "Solana",
+    "trade": "Trade",
+    "transactions": "Transactions",
+    "xrp": "XRP"
+  },
+  "summary": "The signed-in Coinbase web app (home, assets, trade, earn, transactions, learn and four asset pages) rebuilt as stacked golden grids for an exchange that does not exist, with an account that belongs to no one.",
+  "reviewed": {
+    "date": "October 7, 2026",
+    "method": "Not captured. Coinbase's pages, public ones included, sit behind a bot check that the study did not cross, and the study does not sign in. The structure is drawn from how the app is known to be organised, so there is no side-by-side comparison.",
+    "pages": [
+      {
+        "label": "The signed-in Coinbase web app",
+        "url": "https://www.coinbase.com/"
+      }
+    ]
+  },
+  "real": [
+    "Prices and price history, from the Coinbase Exchange public API at the time printed on each page.",
+    "Market capitalisation, supply and all-time highs, from CoinGecko at the same time.",
+    "The descriptions of assets and terms, from Wikipedia."
+  ],
+  "invented": [
+    "GIFcommit as an exchange. It holds no licence, no money and no crypto.",
+    "The account: its owner, holdings, cost bases, transactions, rewards and balances are made up and belong to no one.",
+    "Every control. Nothing can be bought, sold, staked, sent or withdrawn, and nothing here is investment advice."
+  ],
+  "assets": [
+    {
+      "what": "Market data",
+      "source": "Coinbase Exchange public API",
+      "url": "https://docs.cdp.coinbase.com/exchange/reference"
+    },
+    {
+      "what": "Market statistics",
+      "source": "CoinGecko",
+      "url": "https://www.coingecko.com/"
+    },
+    {
+      "what": "Summaries",
+      "source": "Wikipedia, linked where each appears",
+      "licence": "CC BY-SA 4.0"
+    },
+    {
+      "what": "Charts",
+      "source": "Drawn by the study from the data above."
+    },
+    {
+      "what": "Typeface",
+      "source": "Inter",
+      "licence": "SIL Open Font License"
+    },
+    {
+      "what": "Photographs",
+      "source": "None are used."
+    }
+  ],
+  "owner": "Coinbase",
+  "repo": "https://github.com/gregoryedgerton/golden-grids-study-07-coinbase",
+  "updated": "October 9, 2026"
+}
