@@ -29,12 +29,9 @@ the proprietary face, a near-black dark scheme) is from the app's published
 design system, not measured. This is the first study in the series without
 a side-by-side, and the first whose content is live market data.
 
-## The claim
+## Approach
 
-A trading home is a hierarchy with numbers at every level — the balance,
-then each position, then each statistic — and a golden grid gives each
-number a square sized to its rank, with the type set to fit; the chart
-takes the hero square and the smallest squares hold a single figure.
+The signed-in app shows a balance, then each position, then each statistic, in cards and tables of even weight. The study sets each of those groups as one grid: a chart or the leading figure in the largest square, single figures in the smallest, with type fitted to each square.
 
 ## The pages
 
@@ -102,21 +99,22 @@ nothing.
   under 12px, axe (WCAG 2.0/2.1/2.2 A/AA, best practice) clean with a More
   open. No screen-reader user has tested it.
 
-## What did not
+## Notes for review
 
-- No capture, so no side-by-side and no measured tokens. The structure is
-  from knowledge of the app, not from the page; a reader cannot check the
-  rebuild against the reference here as they can in Studies 01–06.
-- A five- or six-square run cannot survive 820px in one grid: the smallest
-  square is 35px. The stacked split keeps every number legible but turns
-  one hierarchy into two, and the band's note says so.
-- The 120px cap leaves the hero of a landscape five-grid mostly ground at
-  1440 when it holds a number alone ("Today", "Your BTC"); the chart boxes
-  do not have the problem.
-- The 1D balance change (first to last point of the series) and the 24h
-  change (against each asset's 24-hour open) measure different windows
-  and can differ by tens of dollars; both are labelled.
-- Rewards rates are indicative figures, not a feed.
+Observations for whoever reviews this study, recorded without a verdict. Whether the layout suits the page is assessed separately, after every study has been reviewed.
+
+- **No capture.** There is no side-by-side and no measured colour or type; the structure is from knowledge of the app.
+- **Five and six squares at 820.** In one grid the smallest square would be 35px, so those bands are two stacked grids below desktop.
+- **Fitted type.** With the 120px cap, a number alone in the largest square of a landscape five-square grid leaves room around it at 1440.
+- **Two change figures.** The 1D balance change and the 24h change measure different windows and can differ by tens of dollars; both are labelled.
+- **Rewards rates.** They are indicative figures, not a feed.
+
+## Disclosure
+
+Every page says what it is in three places, all read from
+[`src/study.json`](src/study.json): its title and description, a sticky notice
+at the top, and a disclosure at the very end listing the pages reviewed, what
+is real, what is invented or changed, and where each kind of asset came from.
 
 ## Study tools
 
