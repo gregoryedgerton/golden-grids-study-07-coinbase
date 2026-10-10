@@ -7,7 +7,7 @@ import { ASSETS, PAGES, SYMBOLS } from "../data";
 /**
  * The signed-in shell, after the reference's: a left rail of sections at
  * desktop (a top bar and a bottom tab bar at phone width), a search field,
- * a Buy & sell control and the account. GIFcommit is a fictional exchange;
+ * a Buy & sell control and the account. GIFbase is a fictional exchange;
  * the prices are real and the account is not.
  */
 export const NAV: [string, string][] = [["index.html", "Home"], ["assets.html", "My assets"], ["trade.html", "Trade"], ["earn.html", "Earn"], ["transactions.html", "Transactions"], ["learn.html", "Learn"]];
@@ -20,7 +20,7 @@ export function Page({ current, title, standfirst, back, children }: { current: 
       <Tools />
       <div className="app">
         <nav className="rail" aria-label="Sections">
-          <a className="wordmark" href="./index.html"><span className="wordmark__dot" aria-hidden="true" />GIFcommit</a>
+          <a className="wordmark" href="./index.html"><span className="wordmark__dot" aria-hidden="true" />GIFbase</a>
           <ul>
             {NAV.map(([href, label]) => (
               <li key={href}>

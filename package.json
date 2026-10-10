@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "description": "Golden Grids layout study 07: the signed-in Coinbase web app rebuilt as GIFcommit, a fictional exchange, with real market data and an invented account.",
+  "description": "Golden Grids layout study 07: the signed-in Coinbase web app rebuilt as GIFbase, a fictional exchange, with real market data and an invented account.",
   "scripts": {
     "dev": "vite",
     "build": "tsc --noEmit && vite build",

@@ -1,11 +1,11 @@
-# Layout study — the signed-in Coinbase web app, as GIFcommit
+# Layout study — the signed-in Coinbase web app, as GIFbase
 
 **Live:** [`https://gregoryedgerton.github.io/golden-grids-study-07-coinbase/`](https://gregoryedgerton.github.io/golden-grids-study-07-coinbase/)
 
 An unaffiliated layout study. It rebuilds the structure of Coinbase's
 signed-in web app — the home with its balance chart, trade panel,
 watchlist and movers; My assets; Trade; Earn; Transactions; Learn; and an
-asset's page — as ten pages of stacked golden grids for GIFcommit, a
+asset's page — as ten pages of stacked golden grids for GIFbase, a
 fictional exchange, with an invented account valued at real prices. The
 reference was not captured: its public pages sit behind a bot check the
 study did not cross, so the structure is rebuilt from how the app is known
@@ -56,7 +56,7 @@ notes — are forms, lists and tables. Breakpoints live in
 | Asset · Price | 1–5 · top · cw | 332×221+166 / 762×508+381 / 1126×704 | Price with chart (1D 1W 1M 1Y ALL); your position, 24h, market cap, volume |
 | Asset · Market stats | 1–6 · right · ccw | 2×(332×221) / 2×(762×508) / 1126×693 | All-time high, supply, 24h high and low, 30d volume, rank |
 | Asset · About | 1–3 · bottom · cw | 332×498 / 762×508 / 1126×751 | The summary with More; links to the source and the trade panel |
-| Asset · Also on GIFcommit | 1–6 · right · cw | 2×(332×221) / 2×(762×508) / 1126×693 | Six other assets |
+| Asset · Also on GIFbase | 1–6 · right · cw | 2×(332×221) / 2×(762×508) / 1126×693 | Six other assets |
 
 All eight placement × direction orientations appear at desktop.
 

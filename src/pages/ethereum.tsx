@@ -16,7 +16,7 @@ function App() {
       <TradePanel symbol="ETH" />
       <StatsBand a={a} />
       <AboutBand a={a} />
-      <WatchlistBand id="similar" title="Also on GIFcommit" symbols={["BTC","SOL","XRP","LINK","AVAX","UNI"]} lesson="Six other assets listed here, priced the same way; each opens its own page or its row on the Trade page." />
+      <WatchlistBand id="similar" title="Also on GIFbase" symbols={["BTC","SOL","XRP","LINK","AVAX","UNI"]} lesson="Six other assets listed here, priced the same way; each opens its own page or its row on the Trade page." />
     </Page>
   );
 }

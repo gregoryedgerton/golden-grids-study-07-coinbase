@@ -1,7 +1,7 @@
 {
   "number": "07",
   "name": "Coinbase",
-  "notice": "A layout study, not Coinbase: a signed-in exchange rebuilt with Golden Grids for GIFcommit, a fictional exchange. Not affiliated with Coinbase; the account is invented, nothing trades, not investment advice.",
+  "notice": "A layout study, not Coinbase: a signed-in exchange rebuilt with Golden Grids for GIFbase, a fictional exchange with a parody name. Not affiliated with Coinbase; the account is invented, nothing trades, not investment advice.",
   "pages": {
     "assets": "My assets",
     "bitcoin": "Bitcoin",
@@ -31,7 +31,7 @@
     "The descriptions of assets and terms, from Wikipedia."
   ],
   "invented": [
-    "GIFcommit as an exchange. It holds no licence, no money and no crypto.",
+    "GIFbase as an exchange, and GIFbase One. The names are parodies made for this study; it holds no licence, no money and no crypto.",
     "The account: its owner, holdings, cost bases, transactions, rewards and balances are made up and belong to no one.",
     "Every control. Nothing can be bought, sold, staked, sent or withdrawn, and nothing here is investment advice."
   ],

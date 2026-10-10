@@ -54,7 +54,7 @@ export function Promos() {
   return (
     <section className="promos" aria-label="Offers">
       <article className="promo">
-        <p className="promo__kicker">GIFcommit One</p>
+        <p className="promo__kicker">GIFbase One</p>
         <h2 className="promo__title">Zero trading fees, boosted rewards</h2>
         <p className="promo__pitch">A subscription for people who trade often: no fee on buys and sells up to $10,000 a month, a higher rate on USDC balances, and priority support. {usd(29.99)} a month after a thirty-day trial.</p>
         <button type="button" className="btn">Start the trial</button>
