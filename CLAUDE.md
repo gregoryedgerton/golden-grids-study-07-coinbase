@@ -186,8 +186,9 @@ Two geometry rules, verified against source, that every band relies on:
 - **Every page says it is a study, in three places**: its metadata, a sticky
   banner at the top, and a disclosure that is the last element on the page.
   All three read `src/study.json`. `study.meta.ts` writes each entry's title
-  (`{Page} · {Reference} · Golden Grids layout study {NN}`), description and
-  favicon link, so the HTML entries carry none; `StudyBanner` and
+  (`{Brand} - a Golden Grids layout study`, with the page's label in front when
+  there is more than one page), description, share card and icon links, so the
+  HTML entries carry none; `StudyBanner` and
   `StudyDisclosure` (`src/lib/study.tsx`, `study.css`) draw the other two.
   The banner's sentence and the meta description are the same sentence. Do
   not restyle them from the study's stylesheet, do not hide or shorten them,
@@ -207,8 +208,12 @@ Two geometry rules, verified against source, that every band relies on:
   arrangements) and "Notes for review" (plain observations for the people who
   will review it). The assessment is made once, after all studies have been
   reviewed by people. (Greg, 2026-10-09.)
-- **Favicon**: `public/favicon.svg`, a 32-unit tile with 6-unit corners and one
-  letter in the study's colours.
+- **Icons**: the letters GIF, in capitals, in the study's face and colours:
+  `public/favicon.svg` (a 32-unit tile with 6-unit corners), `favicon-96.png`,
+  `apple-touch-icon.png` and the share card `og.png` (the parody name over "a
+  Golden Grids layout study"). The raster files matter: share sheets and iOS do
+  not read an SVG icon and otherwise show whatever icon the host last served.
+  `captures/icons-make.py` and `icons-raster.cjs` in the template draw them.
 
 ## Brand
 
@@ -221,6 +226,11 @@ Two geometry rules, verified against source, that every band relies on:
 - Write the name exactly so; never change its case in CSS. The notice in
   `src/study.json` says it is a parody name, and the disclosure lists it
   under what is invented. (Greg, 2026-10-09.)
+- **The header is the reference's header.** Take its structure from the
+  page being rebuilt: the parody name where the logo is, its nav items, its
+  search, its tabs. Do not write "layout study", a study number or the
+  reference's name there; the notice above and the disclosure below say that
+  on every page. (Greg, 2026-10-09.)
 
 ## API facts, verified against 5.0.0 source
 

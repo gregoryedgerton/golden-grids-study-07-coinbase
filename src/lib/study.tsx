@@ -24,6 +24,8 @@ export interface Study {
   number: string;
   /** The reference, as it is named in titles. */
   name: string;
+  /** The study's parody name for the service on its pages (GIFbnb, GIFspn). Titles and the share card use it. */
+  brand?: string;
   /** One sentence: this is a layout study and not the real thing. Banner and meta description. */
   notice: string;
   /** A label for each HTML entry, keyed by file name without the extension. */
@@ -40,8 +42,6 @@ export interface Study {
   affiliation?: string;
   repo: string;
   updated: string;
-  /** A public file to use as the favicon instead of /favicon.svg, for a study whose subject is the author's own brand. */
-  icon?: string;
 }
 export const study = data as Study;
 
