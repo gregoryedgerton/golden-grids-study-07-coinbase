@@ -36,7 +36,7 @@ export function Page({ current, title, standfirst, back, children }: { current: 
               <input id="q" type="search" placeholder="Search for an asset" list="assets" autoComplete="off" />
               <datalist id="assets">{SYMBOLS.map((s) => <option key={s} value={ASSETS[s].name} />)}</datalist>
             </form>
-            <a className="btn btn--primary topbar__buy" href="#trade">Buy &amp; sell</a>
+            <a className="btn btn--primary topbar__buy" href="./trade.html#trade">Buy &amp; sell</a>
             <p className="account" aria-label={`Signed in as ${ACCOUNT.name}`}><span className="account__avatar" aria-hidden="true">{ACCOUNT.initial}</span><span className="account__name">{ACCOUNT.name}</span></p>
           </header>
           <main id="content">
